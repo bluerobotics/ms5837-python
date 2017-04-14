@@ -1,4 +1,4 @@
-#ms5837-python
+# ms5837-python
 
 A python module to interface with MS5837-30BA and MS5837-02BA waterproof pressure and temperature sensors. Tested on Raspberry Pi 3 with Raspbian.
 
@@ -6,7 +6,7 @@ The python SMBus library must be installed.
 
 	sudo apt-get install python-smbus
 
-#Usage
+# Usage
 
 	import ms5837
 
@@ -29,7 +29,7 @@ Or by creating a model-specific object
 	sensor = ms5837.MS5837_30BA() # Use default I2C bus (1)
 	sensor = ms5837.MS5837_30BA(0) # Specify I2C bus 0
 
-###init()
+### init()
 
 Initialize the sensor. This needs to be called before using any other methods.
 
@@ -37,7 +37,7 @@ Initialize the sensor. This needs to be called before using any other methods.
 
 Returns true if the sensor was successfully initialized, false otherwise.
 
-###read(oversampling=OSR_8192)
+### read(oversampling=OSR_8192)
 
 Read the sensor and update the pressure and temperature. The sensor will be read with the supplied oversampling setting. Greater oversampling increases resolution, but takes longer and increases current consumption.
 
@@ -54,7 +54,7 @@ Valid arguments are:
         
 Returns True if read was successful, False otherwise.
 
-###setFluidDensity(density)
+### setFluidDensity(density)
 
 Sets the density in (kg/m^3) of the fluid for depth measurements. The default fluid density is ms5837.DENISTY_FRESHWATER.
 
@@ -66,7 +66,7 @@ Some convenient constants are:
 	ms5837.DENSITY_FRESHWATER = 997
 	ms5837.DENSITY_SALTWATER = 1029
 
-###pressure(conversion=UNITS_mbar)
+### pressure(conversion=UNITS_mbar)
 
 Get the most recent pressure measurement.
 
@@ -87,7 +87,7 @@ Some convenient constants are:
 
 Returns the most recent pressure in millibar * conversion. Call read() to update.
 
-###temperature(conversion=UNITS_Centigrade)
+### temperature(conversion=UNITS_Centigrade)
 
 Get the most recent temperature measurement.
 
@@ -102,7 +102,7 @@ Valid arguments are:
 
 Returns the most recent temperature in the requested units, or temperature in degrees Centigrade if invalid units specified. Call read() to update.
 
-###depth()
+### depth()
 
 Get the most recent depth measurement in meters.
 
@@ -110,7 +110,7 @@ Get the most recent depth measurement in meters.
 
 Returns the most recent depth in meters using the fluid density (kg/m^3) configured by setFluidDensity(). Call read() to update.
 
-###altitude()
+### altitude()
 
 Get the most recent altitude measurement relative to Mean Sea Level pressure in meters.
 

@@ -1,0 +1,35 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyCompatibilityInspection" enabled="true" level="INFORMATION" enabled_by_default="true">
+      <option name="ourVersions">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="2.7" />
+            <item index="1" class="java.lang.String" itemvalue="3.6" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="5">
+            <item index="0" class="java.lang.String" itemvalue="discord.py[voice]" />
+            <item index="1" class="java.lang.String" itemvalue="youtube_dl" />
+            <item index="2" class="java.lang.String" itemvalue="sweeppy" />
+            <item index="3" class="java.lang.String" itemvalue="smbus" />
+            <item index="4" class="java.lang.String" itemvalue="python-aesrdatabaselib" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="analysis.analysis_plot.conn" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

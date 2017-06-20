@@ -1,7 +1,7 @@
 try:
     import smbus
 except:
-    print 'Try sudo apt-get install python-smbus'
+    print('Try sudo apt-get install python-smbus')
     
 from time import sleep
 
@@ -53,7 +53,7 @@ class MS5837(object):
         try:
             self._bus = smbus.SMBus(bus)
         except:
-            print("Bus %d is not available.") % bus
+            print("Bus %d is not available." % bus)
             print("Available busses are listed as /dev/i2c*")
             self._bus = None
         
@@ -83,18 +83,18 @@ class MS5837(object):
                         
         crc = (self._C[0] & 0xF000) >> 12
         if crc != self._crc4(self._C):
-            print "PROM read error, CRC failed!"
+            print("PROM read error, CRC failed!")
             return False
         
         return True
         
     def read(self, oversampling=OSR_8192):
         if self._bus is None:
-            print "No bus!"
+            print("No bus!")
             return False
         
         if oversampling < OSR_256 or oversampling > OSR_8192:
-            print "Invalid oversampling option!"
+            print("Invalid oversampling option!")
             return False
         
         # Request D1 conversion (temperature)
@@ -180,8 +180,8 @@ class MS5837(object):
                 OFFi = (3*(self._temperature-2000)*(self._temperature-2000))/2
                 SENSi = (5*(self._temperature-2000)*(self._temperature-2000))/8
                 if (self._temperature/100) < -15: # Very low temp
-                    OFFi = OFFi+7*(self._temperature+1500l)*(self._temperature+1500)
-                    SENSi = SENSi+4*(self._temperature+1500l)*(self._temperature+1500)
+                    OFFi = OFFi+7*(self._temperature+1500)*(self._temperature+1500)
+                    SENSi = SENSi+4*(self._temperature+1500)*(self._temperature+1500)
             elif (self._temperature/100) >= 20: # High temp
                 Ti = 2*(dT*dT)/(137438953472)
                 OFFi = (1*(self._temperature-2000)*(self._temperature-2000))/16
@@ -222,12 +222,13 @@ class MS5837(object):
         self.n_rem = n_rem
     
         return n_rem ^ 0x00
-    
+
+
 class MS5837_30BA(MS5837):
     def __init__(self, bus=1):
         MS5837.__init__(self, MODEL_30BA, bus)
-        
+
+
 class MS5837_02BA(MS5837):
     def __init__(self, bus=1):
         MS5837.__init__(self, MODEL_02BA, bus)
-        

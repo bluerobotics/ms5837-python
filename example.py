@@ -1,6 +1,7 @@
 #!/usr/bin/python
-import ms5837
 import time
+
+from MS5837 import ms5837
 
 sensor = ms5837.MS5837_30BA() # Default I2C bus is 1 (Raspberry Pi 3)
 #sensor = ms5837.MS5837_30BA(0) # Specify I2C bus
@@ -43,9 +44,9 @@ time.sleep(5)
 while True:
         if sensor.read():
                 print("P: %0.1f mbar  %0.3f psi\tT: %0.2f C  %0.2f F") % (
-                sensor.pressure(), # Default is mbar (no arguments)
-                sensor.pressure(ms5837.UNITS_psi), # Request psi
-                sensor.temperature(), # Default is degrees C (no arguments)
+                    sensor.pressure(),  # Default is mbar (no arguments)
+                sensor.pressure(ms5837.UNITS_psi),  # Request psi
+                sensor.temperature(),  # Default is degrees C (no arguments)
                 sensor.temperature(ms5837.UNITS_Farenheit)) # Request Farenheit
         else:
                 print "Sensor read failed!"

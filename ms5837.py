@@ -136,7 +136,7 @@ class MS5837(object):
     def temperature(self, conversion=UNITS_Centigrade):
         degC = self._temperature / 100.0
         if conversion == UNITS_Farenheit:
-            return (9/5) * degC + 32
+            return (9.0/5.0)*degC + 32
         elif conversion == UNITS_Kelvin:
             return degC - 273
         return degC

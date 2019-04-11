@@ -97,7 +97,7 @@ class MS5837(object):
             print("Invalid oversampling option!")
             return False
         
-        # Request D1 conversion (temperature)
+        # Request D1 conversion (pressure)
         self._bus.write_byte(self._MS5837_ADDR, self._MS5837_CONVERT_D1_256 + 2*oversampling)
     
         # Maximum conversion time increases linearly with oversampling
@@ -108,7 +108,7 @@ class MS5837(object):
         d = self._bus.read_i2c_block_data(self._MS5837_ADDR, self._MS5837_ADC_READ, 3)
         self._D1 = d[0] << 16 | d[1] << 8 | d[2]
         
-        # Request D2 conversion (pressure)
+        # Request D2 conversion (temperature)
         self._bus.write_byte(self._MS5837_ADDR, self._MS5837_CONVERT_D2_256 + 2*oversampling)
     
         # As above

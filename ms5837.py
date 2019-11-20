@@ -138,7 +138,7 @@ class MS5837(object):
         if conversion == UNITS_Farenheit:
             return (9.0/5.0)*degC + 32
         elif conversion == UNITS_Kelvin:
-            return degC - 273
+            return degC + 273
         return degC
         
     # Depth relative to MSL pressure in given fluid density

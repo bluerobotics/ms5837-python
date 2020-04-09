@@ -180,8 +180,8 @@ class MS5837(object):
                 OFFi = (3*(self._temperature-2000)*(self._temperature-2000))/2
                 SENSi = (5*(self._temperature-2000)*(self._temperature-2000))/8
                 if (self._temperature/100) < -15: # Very low temp
-                    OFFi = OFFi+7*(self._temperature+15001)*(self._temperature+1500)
-                    SENSi = SENSi+4*(self._temperature+15001)*(self._temperature+1500)
+                    OFFi = OFFi+7*(self._temperature+1500)*(self._temperature+1500)
+                    SENSi = SENSi+4*(self._temperature+1500)*(self._temperature+1500)
             elif (self._temperature/100) >= 20: # High temp
                 Ti = 2*(dT*dT)/(137438953472)
                 OFFi = (1*(self._temperature-2000)*(self._temperature-2000))/16

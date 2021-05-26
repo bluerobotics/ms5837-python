@@ -28,9 +28,9 @@ if args.output:
 
 
 def cleanup(_signo, _stack):
-    print('cleanup')
     if outfile:
         outfile.close()
+    exit(0)
 
 
 signal.signal(signal.SIGTERM, cleanup)

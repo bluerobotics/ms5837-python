@@ -1,0 +1,26 @@
+{
+  "0": {
+    "llType": "error",
+    "columns": [
+      {
+        "llabel": "error message",
+        "dtype": "str"
+      }
+    ]
+  },
+  "1": {
+    "llType": "data",
+    "columns": [
+      {
+        "llabel": "pressure",
+        "units": "mbar",
+        "dtype": "float"
+      },
+      {
+        "llabel": "temperature",
+        "units": "degC",
+        "dtype": "float"
+      }
+    ]
+  }
+}

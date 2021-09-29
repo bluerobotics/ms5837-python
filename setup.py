@@ -11,5 +11,10 @@ setup(
     author='Blue Robotics',
     url='https://github.com/bluerobotics/ms5837-python',
     packages=['ms5837'],
+    entry_points={
+        'console_scripts': [
+            'ms5837-test=ms5837.test:main',
+        ],
+    },
     install_requires=['smbus'],
 )

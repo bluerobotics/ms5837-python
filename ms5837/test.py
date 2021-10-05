@@ -11,13 +11,16 @@ def main():
                         help='run test for Bar02 02BA model (default is Bar30 30BA model)')
     args = parser.parse_args()
 
-    if args.bar02:
-        ms = MS5837_02BA(args.bus)
-    else:
-        ms = MS5837_30BA(args.bus)
-    ms.init()
-
     with LLogWriter(args.meta, args.output, console=args.console) as log:
+        if args.bar02:
+            ms = MS5837_02BA(args.bus)
+        else:
+            ms = MS5837_30BA(args.bus)
+
+        if not ms.init():
+            print(f'failed to init device')
+            exit(1)
+
         def data_getter():
             ms.read()
             return f'{ms.pressure():.6f} {ms.temperature():.6f}'

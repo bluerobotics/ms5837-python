@@ -1,8 +1,4 @@
-try:
-    import smbus2
-except:
-    print('Try pip install --user smbus2')
-
+import smbus2
 from time import sleep
 
 # Models
@@ -49,14 +45,7 @@ class MS5837(object):
     
     def __init__(self, model=MODEL_30BA, bus=1):
         self._model = model
-        
-        try:
-            self._bus = smbus2.SMBus(bus)
-        except:
-            print("Bus %d is not available."%bus)
-            print("Available buses are listed as /dev/i2c*")
-            self._bus = None
-        
+        self._bus = smbus2.SMBus(bus)
         self._fluidDensity = DENSITY_FRESHWATER
         self._pressure = 0
         self._temperature = 0
@@ -64,10 +53,6 @@ class MS5837(object):
         self._D2 = 0
         
     def init(self):
-        if self._bus is None:
-            print("No bus!")
-            return False
-        
         self._bus.write_byte(self._MS5837_ADDR, self._MS5837_RESET)
         
         # Wait for reset to complete
@@ -89,10 +74,6 @@ class MS5837(object):
         return True
         
     def read(self, oversampling=OSR_8192):
-        if self._bus is None:
-            print("No bus!")
-            return False
-        
         if oversampling < OSR_256 or oversampling > OSR_8192:
             print("Invalid oversampling option!")
             return False

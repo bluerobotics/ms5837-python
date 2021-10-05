@@ -65,7 +65,7 @@ class MS5837(object):
         
     def init(self):
         if self._bus is None:
-            "No bus!"
+            print("No bus!")
             return False
         
         self._bus.write_byte(self._MS5837_ADDR, self._MS5837_RESET)

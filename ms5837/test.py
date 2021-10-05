@@ -6,7 +6,7 @@ def main():
 
     device = "ms5837"
     parser = LLogWriter.create_default_parser(__file__, device)
-    parser.add_argument("--bus", default=6, help="i2c bus")
+    parser.add_argument("--bus", type=int, default=6, help="i2c bus")
     parser.add_argument('--bar02', action='store_true',
                         help='run test for Bar02 02BA model (default is Bar30 30BA model)')
     args = parser.parse_args()

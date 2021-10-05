@@ -11,6 +11,7 @@ setup(
     author='Blue Robotics',
     url='https://github.com/bluerobotics/ms5837-python',
     packages=['ms5837'],
+    package_data={ "ms5837": ["ms5837.meta"]},
     entry_points={
         'console_scripts': [
             'ms5837-test=ms5837.test:main',

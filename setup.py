@@ -14,6 +14,7 @@ setup(
     package_data={ "ms5837": ["ms5837.meta"]},
     entry_points={
         'console_scripts': [
+            'ms5837-report=ms5837.report:main',
             'ms5837-test=ms5837.test:main',
         ],
     },

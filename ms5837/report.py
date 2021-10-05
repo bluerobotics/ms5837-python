@@ -6,8 +6,14 @@ def generate_figures(log):
     footer = f'ms5837 test report'
 
     f, spec = log.figure(height_ratios=[1,1], suptitle=f'ms5837 data', footer=footer)
+
     plt.subplot(spec[1,:])
-    log.error.ttable(rl=True)
+
+    # todo check if log.error exists
+    try:
+        log.error.ttable(rl=True)
+    except:
+        pass
 
     plt.subplot(spec[1,:])
     log.data.pressure.pplot(log.data.temperature)

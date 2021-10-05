@@ -18,5 +18,5 @@ setup(
             'ms5837-test=ms5837.test:main',
         ],
     },
-    install_requires=['smbus'],
+    install_requires=['smbus2'],
 )

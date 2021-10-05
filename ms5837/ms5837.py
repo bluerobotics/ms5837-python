@@ -1,8 +1,8 @@
 try:
-    import smbus
+    import smbus2
 except:
-    print('Try sudo apt-get install python-smbus')
-    
+    print('Try pip install --user smbus2')
+
 from time import sleep
 
 # Models
@@ -51,10 +51,10 @@ class MS5837(object):
         self._model = model
         
         try:
-            self._bus = smbus.SMBus(bus)
+            self._bus = smbus2.SMBus(bus)
         except:
             print("Bus %d is not available."%bus)
-            print("Available busses are listed as /dev/i2c*")
+            print("Available buses are listed as /dev/i2c*")
             self._bus = None
         
         self._fluidDensity = DENSITY_FRESHWATER

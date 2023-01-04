@@ -11,5 +11,5 @@ setup(
     author='Blue Robotics',
     url='https://github.com/bluerobotics/ms5837-python',
     packages=['ms5837'],
-    install_requires=['smbus'],
+    install_requires=['smbus2'],
 )

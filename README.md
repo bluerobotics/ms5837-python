@@ -6,7 +6,7 @@ A python module to interface with MS5837-30BA and MS5837-02BA waterproof pressur
 
 The python SMBus library must be installed.
 
-	sudo apt-get install python-smbus
+	sudo apt-get install python-smbus2
 
 Download this repository by clicking on the download button in this webpage, or using git:
 
